@@ -15,4 +15,5 @@ jobs:
         uses: pozil/auto-assign-issue@v2.2.0
         with:
           assignees: sejongjeong
-          numOfAssignee: 1
+          numOfAssignee: 2
+          allowSelfAssign: false
