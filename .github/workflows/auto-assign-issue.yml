@@ -15,6 +15,4 @@ jobs:
         uses: pozil/auto-assign-issue@v2.2.0
         with:
           assignees: sejongjeong
-          repo-token: ${{ github.token }}
           numOfAssignee: 1
-          allowSelfAssign: false
