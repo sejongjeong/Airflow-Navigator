@@ -14,7 +14,6 @@ jobs:
       - name: 'Auto-assign Issue'
         uses: pozil/auto-assign-issue@v2.2.0
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: sejongjeong
           numOfAssignee: 1
           allowSelfAssign: false
