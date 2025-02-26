@@ -14,6 +14,6 @@ jobs:
       - name: 'Auto-assign Issue'
         uses: pozil/auto-assign-issue@v2.2.0
         with:
-          assignees: sejongjeong
+          assignees: sejongjeong, yjinheon, ryeong0418, kyungjunleeme, gyfla810, ggaem
           numOfAssignee: 2
           allowSelfAssign: false
