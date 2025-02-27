@@ -11,9 +11,20 @@ jobs:
       issues: write
 
     steps:
+      - name: 'Get repository collaborators'
+        id: get-collaborators
+        run: |
+          COLLABORATORS=$(gh api repos/${{ github.repository }}/collaborators --jq 'map(.login) | map(select(. != "hellices")) | join(", ")')
+          echo "COLLABORATORS=${COLLABORATORS}" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Check COLLABORATORS Value'
+        run: echo "COLLABORATORS=${{ env.COLLABORATORS }}"
+
       - name: 'Auto-assign Issue'
-        uses: pozil/auto-assign-issue@v2.2.0
+        uses: pozil/auto-assign-issue@v2
         with:
-          assignees: sejongjeong, yjinheon, ryeong0418, kyungjunleeme, gyfla810, ggaem
+          assignees: ${{ env.COLLABORATORS }}
           numOfAssignee: 2
           allowSelfAssign: false
